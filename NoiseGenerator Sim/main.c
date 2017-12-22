@@ -4,8 +4,8 @@
 // * Godina: 2017
 // *
 // * Zadatak: Generator periodicnog suma
-// * Autor:Filip Jasic
-// * Index:RA46-2014
+// * Autor:
+// *
 // *
 //////////////////////////////////////////////////////////////////////////////
 
@@ -19,35 +19,20 @@
 #include "print_number.h"
 #include "gen_sinus.h"
 #include "math.h"
-
-
+#include "Dsplib.h"
+#include "Dsplib_c.h"
 /* Frekvencija odabiranja */
 #define SAMPLE_RATE 8000L
+
 /* Niz za smestanje odbiraka ulaznog signala */
 #pragma DATA_ALIGN(bufferL,4)
 Int16 bufferL[AUDIO_IO_SIZE];
 #pragma DATA_ALIGN(bufferR,4)
 Int16 bufferR[AUDIO_IO_SIZE];
 
-//ovde smestam generisani signal
-#pragma DATA_ALIGN(OutputBufferL,4)
-Int16 OutputBufferL[AUDIO_IO_SIZE];
-#pragma DATA_ALIGN(OutputBufferR,4)
-Int16 OutputBufferR[AUDIO_IO_SIZE];
-
-//rezultat sabiranje ulaznog i generisanog signala
-//#pragma DATA_ALIGN(OutputBufferSumLeft,4)
-Int16 OutputBufferSumLeft[AUDIO_IO_SIZE];
-//#pragma DATA_ALIGN(OutputBufferSumRight,4)
-Int16 OutputBufferSumRight[AUDIO_IO_SIZE];
 
 void main( void )
 {
-	/*VARIJABLE */
-	float fl=0,fr=0;
-	float phaseL=0,phaseR=0;
-	int i;
-
     /* Inicijalizaija razvojne ploce */
     EZDSP5535_init( );
 
@@ -80,21 +65,9 @@ void main( void )
 		aic3204_read_block(bufferL, bufferR);
 
 		/* TODO : Generisati sum zadate frekvencije i sabrati sa ulznim signalom. */
-		gen_sinus_table(AUDIO_IO_SIZE,16383,fl,phaseL,OutputBufferL);
-		gen_sinus_table(AUDIO_IO_SIZE,16383,fr,phaseR,OutputBufferR);
 
 
-		for (i = 0; i < AUDIO_IO_SIZE; i++)
-				{
-			OutputBufferSumLeft[i] = bufferL[i] + OutputBufferL[i];
-			OutputBufferSumRight[i] = bufferR[i] + OutputBufferR[i];
-
-
-				}
-
-
-
-		aic3204_write_block(OutputBufferSumLeft, OutputBufferSumRight);
+		aic3204_write_block(bufferL, bufferR);
 
 	}
 

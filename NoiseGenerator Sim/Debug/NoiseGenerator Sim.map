@@ -1,7 +1,7 @@
 ******************************************************************************
               TMS320C55x Linker PC v4.4.1                      
 ******************************************************************************
->> Linked Sun Dec 24 20:20:25 2017
+>> Linked Sun Dec 24 20:37:05 2017
 
 OUTPUT FILE NAME:   <NoiseGenerator Sim.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000256ee
@@ -14,7 +14,7 @@ MEMORY CONFIGURATION
 ----------------------  --------  ---------  --------  --------  ----  --------
 PAGE 0:
   MMR                   00000000   000000c0  00000000  000000c0  RWIX
-  DARAM0                000000c0   0000ff40  00008546  000079fa  RWIX
+  DARAM0                000000c0   0000ff40  00008542  000079fe  RWIX
   SARAM0                00010000   00010000  00000000  00010000  RWIX
   SARAM1                00020000   00020000  0000581c  0001a7e4  RWIX
   SARAM2                00040000   0000fe00  00001376  0000ea8a  RWIX
@@ -77,17 +77,17 @@ section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
 .const.2     0   [ 00008500 ]  00004280          *   00000039   
                  [ 00008500 ]  00004280          *   00000039   main.obj (.const:.string)
 
-.const.3     0   [ 00008574 ]  000042ba          *   00000049   
+.const.3     0   [ 00008574 ]  000042ba          *   00000047   
                  [ 00008574 ]  000042ba          *   00000024   rts55x.lib : _printfi.obj (.const:.string)
-                 [ 000085bc ]  000042de          *   0000000c   main.obj (.const)
-                 [ 000085d4 ]  000042ea          *   0000000c   rts55x.lib : _printfi.obj (.const)
-                 [ 000085ec ]  000042f6          *   00000008              : divd.obj (.const:_initial_approx$1)
-                 [ 000085fc ]  000042fe          *   00000005   print_number.obj (.const:.string)
+                 [ 000085bc ]  000042de          *   0000000c              : _printfi.obj (.const)
+                 [ 000085d4 ]  000042ea          *   0000000a   main.obj (.const)
+                 [ 000085e8 ]  000042f4          *   00000008   rts55x.lib : divd.obj (.const:_initial_approx$1)
+                 [ 000085f8 ]  000042fc          *   00000005   print_number.obj (.const:.string)
 
-.const.4     0   [ 00008608 ]  00004304          *   00000006   
-                 [ 00008608 ]  00004304          *   00000002   rts55x.lib : fputs.obj (.const:.string)
-                 [ 0000860c ]  00004306          *   00000002   gen_sinus.obj (.const)
-                 [ 00008610 ]  00004308          *   00000002   rts55x.lib : fltlid.obj (.const)
+.const.4     0   [ 00008604 ]  00004302          *   00000006   
+                 [ 00008604 ]  00004302          *   00000002   rts55x.lib : fputs.obj (.const:.string)
+                 [ 00008608 ]  00004304          *   00000002   gen_sinus.obj (.const)
+                 [ 0000860c ]  00004306          *   00000002   rts55x.lib : fltlid.obj (.const)
 
 .text        0     00020000  [ 00010000 ] 0000581c          *   
                    00020000  [ 00010000 ] 000015a4          *   rts55x.lib : _printfi.obj (.text)

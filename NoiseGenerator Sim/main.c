@@ -129,6 +129,7 @@ void main( void )
 							  break;
 						}
 						key_pressed(symbol, &fl);
+
 					/*
 		int pressed;
 		int pressedBefore = NoKey;
@@ -168,8 +169,8 @@ void main( void )
 
 		aic3204_read_block(bufferL, bufferR);
 
-		gen_sinus_table(AUDIO_IO_SIZE, AMPLITUDE_SCALE, 1520, phaseL, outputBufferLgenerated);
-		gen_sinus_table(AUDIO_IO_SIZE, AMPLITUDE_SCALE, 1520, phaseR, outputBufferRgenerated);
+		gen_sinus_table(AUDIO_IO_SIZE, AMPLITUDE_SCALE, 1520.0/8000.0, phaseL, outputBufferLgenerated);
+		gen_sinus_table(AUDIO_IO_SIZE, AMPLITUDE_SCALE, 1520.0/8000.0, phaseR, outputBufferRgenerated);
 
 		/* TODO : Generisati sum zadate frekvencije i sabrati sa ulznim signalom. */
 		for(i=0;i<AUDIO_IO_SIZE;i++){

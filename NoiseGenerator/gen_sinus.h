@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
 // *
 // * Predmetni projekat iz predmeta OAiS DSP 1
-// * Godina: 2017
+// * Godina: 2016
 // *
 // * Generisanje Sinusnog signala upotrebom tabele pretrazivanja
 // *

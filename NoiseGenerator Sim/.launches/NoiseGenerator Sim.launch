@@ -6,7 +6,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="${build_artifact:NoiseGenerator Sim}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="NoiseGenerator Sim"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:NoiseGenerator Sim}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="C:/Users\NN\Desktop\DSP\v2\NoiseGenerator Sim\Debug\NoiseGenerator Sim.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="G:/Downloads\dsp1-projekat\Projekat_0\NoiseGenerator Sim\Debug\NoiseGenerator Sim.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/NoiseGenerator Sim"/>
 </listAttribute>

@@ -154,7 +154,7 @@ all: NoiseGenerator.out
 NoiseGenerator.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C5500 Linker'
-	"C:/ti/ccs6/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -g --define=c5535 --diag_warning=225 --ptrdiff_size=16 -z -m"NoiseGenerator.map" --stack_size=0x200 --heap_size=0x400 -i"C:/ti/ccs6/ccsv6/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccs6/ccsv6/tools/compiler/c5500_4.4.1/include" -i"C:/Users/NN/Desktop/DSP/v2/NoiseGenerator/c55xx_csl/lib" -i"C:/Users/NN/Desktop/DSP/v2/NoiseGenerator/lib" --reread_libs --warn_sections --xml_link_info="vezba-ezdsp_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "NoiseGenerator.out" $(ORDERED_OBJS)
+	"C:/ti/ccs6/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -g --define=c5535 --diag_warning=225 --ptrdiff_size=16 -z -m"NoiseGenerator.map" --stack_size=0x200 --heap_size=0x400 -i"C:/ti/ccs6/ccsv6/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccs6/ccsv6/tools/compiler/c5500_4.4.1/include" -i"G:/Downloads/dsp1-projekat/Projekat_0/NoiseGenerator/c55xx_csl/lib" -i"G:/Downloads/dsp1-projekat/Projekat_0/NoiseGenerator/lib" --reread_libs --warn_sections --xml_link_info="vezba-ezdsp_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "NoiseGenerator.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

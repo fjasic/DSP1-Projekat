@@ -18,23 +18,43 @@
 #include "print_number.h"
 #include "math.h"
 #include "Dsplib.h"
+#include "window.h"
 
 /* Frekvencija odabiranja */
 #define SAMPLE_RATE 8000L
 
 /* Velicina prozora za racunanje FFT-a */
-/* TODO Dodeliti velicinu bloka kod racunanja FFT*/
-#define FFT_SIZE 1
+/* DONE Dodeliti velicinu bloka kod racunanja FFT*/
+#define FFT_SIZE 256
+
+/* Trajanje (8000 odbiraka u 1s, 1ms = 8 odbiraka, 256ms = 2048 odbirka, ucitava se po 256 odbiraka, pa je potrebno 8 blokova ucitati*/
+#define DELTA 8
 
 /* Niz za smestanje odbiraka ulaznog signala */
 #pragma DATA_ALIGN(InputBufferL,4)
 Int16 InputBufferL[AUDIO_IO_SIZE];
 #pragma DATA_ALIGN(InputBufferR,4)
 Int16 InputBufferR[AUDIO_IO_SIZE];
+/*Ovde smestam odbirke i radim sa njima */
+Int16 oldValues[AUDIO_IO_SIZE];
+Int16 newValues[AUDIO_IO_SIZE];
+Int16 fftBuffer[FFT_SIZE];
+
+/*Za racunanje snage*/
+//Int32 componentPower[8];
+Int32 magnitude_response[AUDIO_IO_SIZE/2];
 
 void main( void )
 {   
+	int i;
+	/*for(i = 0; i < AUDIO_IO_SIZE; i++){
+	oldValues[i] = 0;
+	}
+	for(i = 0; i < 8; i++){
+		componentPower[i] = 0;
+	}
 
+	*/
 	/* Inicijalizaija razvojne ploce */
 	EZDSP5535_init( );
 
@@ -58,8 +78,30 @@ void main( void )
 	{
 		aic3204_read_block(InputBufferL, InputBufferR);
 
-		/* TODO */
+		
+		/* TODO*/
 
+    	for(i=0;i<AUDIO_IO_SIZE;i++){
+    		oldValues[i]=InputBufferL[i];
+    		newValues[i]=InputBufferL[i];
+    	}
+
+    	/* Popunjavanje bafera za fft */
+    			int k = AUDIO_IO_SIZE;
+    			for(i = 0; i< AUDIO_IO_SIZE; i++, k++) {
+    				fftBuffer[i] = oldValues[i];
+    				fftBuffer[k] = newValues[i];
+
+    			}
+
+    			//prozoriranje
+    			for(i = 0; i < FFT_SIZE; i++) {
+    				newValues[i] = _smpy(fftBuffer[i], p_window[i]);	//mnozenje
+    			}
+    			//fft
+    			rfft(newValues, FFT_SIZE, SCALE);
+
+    			magnitude_response[0] = ((Int32)newValues[0])*newValues[0];
 		aic3204_write_block(InputBufferL, InputBufferR);
 	}
     	

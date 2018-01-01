@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "ezdsp5535_gpio.h": "c"
+    },
+    "git.ignoreLimitWarning": true
+}

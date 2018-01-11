@@ -158,4 +158,3 @@ void main( void )
     printf( "\n***Kraj programa***\n" );
 	SW_BREAKPOINT;
 }
-

@@ -61,6 +61,8 @@ void main( void )
 
 	printf("\n Dodavanje suma u signal \n");
 
+    /* Podesavanje ulazne i izlazne datoteke za simulaciju AD/DA konvertora */
+
     /* Inicijalizacija veze sa AIC3204 kodekom (AD/DA) */
     aic3204_hardware_init();
 
@@ -90,14 +92,14 @@ void main( void )
 									printChar('5');
 									printChar('2');
 									printChar('0');
-									printf("1520");
+								//	printf("1520");
 								}else if (br == 1) {
 								clearLCD();
 									printChar('1');
 									printChar('9');
 									printChar('8');
 									printChar('0');
-									printf("1980");
+								//	printf("1980");
 								}else if(br == 2) {
 									clearLCD();
 									printChar('2');
@@ -111,7 +113,7 @@ void main( void )
 									printChar('1');
 									printChar('1');
 									printChar('0');
-									printf("3110");
+								//	printf("3110");
 									}
 								else {
 									clearLCD();
@@ -139,7 +141,7 @@ void main( void )
 						}
 		aic3204_read_block(bufferL, bufferR);
 
-		gen_sinus_table(AUDIO_IO_SIZE, AMPLITUDE_SCALE,(float) 3110/8000, ph, outputBufferLgenerated);
+		gen_sinus_table(AUDIO_IO_SIZE, AMPLITUDE_SCALE,(float) f/8000, ph, outputBufferLgenerated);
 
 		/* TODO : Generisati sum zadate frekvencije i sabrati sa ulznim signalom. */
 		for(i=0;i<AUDIO_IO_SIZE;i++){

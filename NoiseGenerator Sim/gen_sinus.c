@@ -16,7 +16,7 @@ Int16 N = SINE_TABLE_SIZE;
 
 void gen_sinus_table(Int16 n, Int16 a, float f, float ph, Int16 buffer[])
 {
- 
+
 		int i = 0;
 		int delta = f * N;
 
@@ -39,4 +39,4 @@ void gen_sinus_table(Int16 n, Int16 a, float f, float ph, Int16 buffer[])
 			k += delta;
 		}
 		ph=k;
-	}
+}
